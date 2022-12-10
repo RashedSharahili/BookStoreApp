@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/book_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/image_book"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginEnd="24dp"
+            android:contentDescription="TODO"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@+id/image_book"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/title_book"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="عنوان الكتاب"
+                android:textSize="16sp"
+                android:fontFamily="@font/ge_ss_text_bold_26"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/price_book"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="سعر الكتاب"
+                android:textSize="16sp"
+                android:fontFamily="@font/ge_ss_two_light_28"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/author_book"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="مؤلف الكتاب"
+                android:textSize="16sp"
+                android:fontFamily="@font/ge_ss_two_light_28"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/is_like_btn"
+            android:layout_width="32dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:backgroundTint="@color/white"
+            android:contentDescription="TODO"
+            android:minHeight="32dp"
+            android:src="@drawable/ic_baseline_favorite_border_24" />
+
+        <!--
+        <Button
+            android:id="@+id/is_like_btn"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" />
+            -->
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
