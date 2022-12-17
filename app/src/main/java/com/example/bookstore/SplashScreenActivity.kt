@@ -21,13 +21,15 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         @Suppress("DEPRECATION")
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.S) {
             window.insetsController?.hide(WindowInsets.Type.statusBars())
+            supportActionBar?.hide()
         } else {
             window.setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
+            supportActionBar?.hide()
         }
         setContentView(R.layout.activity_splash_screen)
 

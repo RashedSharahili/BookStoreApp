@@ -6,14 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bookstore.BookFragmentDirections
 import com.example.bookstore.MainActivity
 import com.example.bookstore.R
 import com.example.bookstore.data.DataSource
 import com.example.bookstore.model.Book
 import java.util.*
 
-class BookAdapter(private val context: Context, private var dataSet : List<Book>, private var clickListener: ClickListener) : RecyclerView.Adapter<BookAdapter.ViewHolder>(), Filterable {
+class BookAdapter(private val context: Context, private var dataSet : List<Book>) : RecyclerView.Adapter<BookAdapter.ViewHolder>(), Filterable {
 
 //    val bookListFiltered : List<Book> = DataSource().loadBook()
 
@@ -64,7 +66,15 @@ class BookAdapter(private val context: Context, private var dataSet : List<Book>
 //        holder.bookLike.setImageResource(R.drawable.heart_icon)
         holder.itemView.setOnClickListener {
 
-            clickListener.clickedItem(item)
+//            clickListener.clickedItem(item)
+
+            val action = BookFragmentDirections.actionBookFragmentToDetailsBookFragment(
+            bookImage = item.bookImage,
+            bookTitle = item.title,
+            bookPrice = item.price.toFloat(),
+            bookAuthor = item.author
+            )
+            holder.itemView.findNavController().navigate(action)
         }
 
     }
